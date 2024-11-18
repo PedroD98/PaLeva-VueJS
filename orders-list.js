@@ -15,7 +15,7 @@ const app = Vue.createApp({
     methods:{
 
         async getOrders() {
-            let response = await fetch(`${API_BASE_URL}?status_filters[]=confirming&status_filters[]=preparing`);
+            let response = await fetch(`${API_BASE_URL}?status_filters[]=confirming&status_filters[]=preparing&status_filters[]=done`);
             let data = await response.json();
 
             data.orders.forEach(element => {
@@ -24,6 +24,8 @@ const app = Vue.createApp({
                 order.code = element.code;
                 order.status = element.status;
                 order.created_at = element.created_at;
+
+                console.log('Order created_at:', order.created_at)
 
                 this.ordersList.push(order);
             })

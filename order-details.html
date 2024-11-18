@@ -14,6 +14,9 @@
                 <p><strong>Horário: </strong>{{order.order_info.created_at}}</p>
                 <p><strong>Status: </strong>{{order.order_info.status}}</p>
             </div>
+            <div id="customer">
+                <p><strong>Nome do cliente: </strong>{{order.customer.customer_name}}</p>
+            </div>
             <div>
                 <p><strong>Itens do pedido:</strong></p>
                 <ul>
@@ -26,9 +29,12 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div id="customer">
-
+                <div id="button" v-on:click="updateToPreparing()" v-if="order.order_info.status == 'Aguardando confirmação da cozinha'">
+                    <button>Confirmar pedido</button>
+                </div>
+                <div id="button" v-on:click="updateToDone()" v-if="order.order_info.status == 'Em preparação'">
+                    <button>Pedido pronto</button>
+                </div>
             </div>
         </div>
 

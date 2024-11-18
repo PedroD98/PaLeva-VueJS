@@ -10,8 +10,8 @@ const app = Vue.createApp({
 
 
     async mounted() {
-        let orderCode = this.getQueryParams('code')
-        await this.getOrderDetails(orderCode)
+        let orderCode = this.getQueryParams('code');
+        await this.getOrderDetails(orderCode);
     },
 
     methods:{
@@ -26,8 +26,27 @@ const app = Vue.createApp({
         getQueryParams(code) {
             let params = new URLSearchParams(window.location.search);
             return params.get(code);
-        }
+        },
 
+        async updateToPreparing() {
+            await fetch(`${API_BASE_URL}/${this.order.order_info.code}/preparing`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            window.location.reload();
+        },
+
+        async updateToDone() {
+            await fetch(`${API_BASE_URL}/${this.order.order_info.code}/done`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            window.location.reload();
+        }
     }
 
 })
