@@ -30,17 +30,17 @@
                     </li>
                 </ul>
                 <div id="button" v-on:click="updateToPreparing()" v-if="order.order_info.status == 'Aguardando confirmação da cozinha'">
-                    <button>Confirmar pedido</button>
+                    <button class="button">Confirmar pedido</button>
                 </div>
                 <div id="button" v-on:click="updateToDone()" v-if="order.order_info.status == 'Em preparação'">
-                    <button>Pedido pronto</button>
+                    <button class="button">Pedido pronto</button>
                 </div>
             </div>
         </div>
 
-        <div>
-            <a href="index.html">Lista de pedidos</a>
-        </div>
+        <br>
+        <a class="index-link" href="index.html">Lista de pedidos</a>
+        
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

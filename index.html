@@ -13,7 +13,7 @@
             <li v-for="order in ordersList.filter(order => order.status == 'Aguardando confirmação da cozinha')">
                 <div>
                     <br>
-                    <a v-bind:href="'order-details.html?code=' + order.code">
+                    <a class="link" v-bind:href="'order-details.html?code=' + order.code">
                         <strong>{{ order.code }}</strong>
                     </a>
                     <br>Status: {{ order.status }}
@@ -28,7 +28,7 @@
                 <div>
                     <div >
                     <br>
-                    <a v-bind:href="'order-details.html?code=' + order.code">
+                    <a class="link" v-bind:href="'order-details.html?code=' + order.code">
                         <strong>{{ order.code }}</strong>
                     </a>
                     <br>Status: {{ order.status }}
@@ -42,7 +42,7 @@
             <li v-for="order in ordersList.filter(order => order.status == 'Pronto')">
                 <div>
                     <br>
-                    <a v-bind:href="'order-details.html?code=' + order.code">
+                    <a class="link" v-bind:href="'order-details.html?code=' + order.code">
                         <strong>{{ order.code }}</strong>
                     </a>
                     <br>Status: {{ order.status }}
