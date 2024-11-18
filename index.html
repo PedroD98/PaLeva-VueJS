@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="app">
+        <h1>Pedidos pendentes:</h1>
 
-
+        <ul>
+            <li v-for="order in ordersList">
+                <div>
+                    <br>
+                    <a v-bind:href="'order-details.html?code=' + order.code">
+                        <strong>{{ order.code }}</strong>
+                    </a>
+                    <br>Status: {{ order.status }}
+                    <br>Horário: {{ order.created_at }}
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="main.js"></script>
+    <script src="orders-list.js"></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaLevá</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div v-if="order">
+            <h1>Detalhes do pedido {{ order.order_info.code }}</h1>
+            <div id="order">
+                <p><strong>Horário: </strong>{{order.order_info.created_at}}</p>
+                <p><strong>Status: </strong>{{order.order_info.status}}</p>
+            </div>
+            <div>
+                <p><strong>Itens do pedido:</strong></p>
+                <ul>
+                    <li v-for="item in order.items">
+                        <div id="items">
+                            {{item.qty}} x {{item.portion}}
+                            <span v-if="item.description">
+                                <p><strong>Observações: </strong>{{ item.description }}</p>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="customer">
+
+            </div>
+        </div>
+
+        <div>
+            <a href="index.html">Lista de pedidos</a>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="order-details.js"></script>
+</body>
+</html>
