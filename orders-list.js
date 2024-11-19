@@ -15,7 +15,7 @@ const app = Vue.createApp({
     methods:{
 
         async getOrders() {
-            let response = await fetch(`${API_BASE_URL}?status_filters[]=confirming&status_filters[]=preparing&status_filters[]=done`);
+            let response = await fetch(`${API_BASE_URL}?status_filters[]=confirming&status_filters[]=preparing&status_filters[]=done&status_filters[]=canceled`);
             let data = await response.json();
 
             data.orders.forEach(element => {

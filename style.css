@@ -19,6 +19,13 @@ li {
     text-decoration: underline;
 }
 
+.button-container {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
 .button {
     background-color: #0056b3;
     color: white;
@@ -35,17 +42,44 @@ li {
     background-color: #007BFF;
 }
 
+.cancel-button {
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    font-size: medium;
+    border: none;
+    border-radius: 12px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: red;
+}
+
+.cancel-input {
+    width: 25%;
+    height: 100px;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+}
+
 .index-link {
     margin: 10px;
     text-decoration: none;
-    background-color: gray;
+    background-color: rgb(79, 73, 73);
     color: white;
     padding: 12px;
-    font-size: medium;
+    font-size: large;
     border-radius: 12px;
     cursor: pointer;
 }
 
 .index-link:hover {
-    background-color: rgb(79, 73, 73);
+    background-color: gray;
 }

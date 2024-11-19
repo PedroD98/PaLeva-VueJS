@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <div v-if="order">
-            <h1>Detalhes do pedido {{ order.order_info.code }}</h1>
+            <h1>Cancelamento do pedido {{ order.order_info.code }}</h1>
             <div id="order">
                 <p><strong>Horário: </strong>{{ order.order_info.created_at }}</p>
                 <p><strong>Status: </strong>{{ order.order_info.status }}</p>
@@ -33,19 +33,14 @@
                     </li>
                 </ul>
             </div>
-            <div id="status_buttons" class="button-container">
-                <div id="preparing_button" v-if="order.order_info.status == 'Aguardando confirmação da cozinha'">
-                    <button class="button" v-on:click="updateToPreparing()">Confirmar pedido</button>
-                </div>
-                <div id="done_button" v-if="order.order_info.status == 'Em preparação'">
-                    <button class="button" v-on:click="updateToDone()">Pedido pronto</button>
-                </div>
-                <div id="cancel_link" v-if="order.order_info.status != 'Cancelado'">
-                    <a class="cancel-button" v-bind:href="'order-cancel.html?code=' + order.order_info.code">Cancelar pedido</a>
-                </div>
+            <div id="cancel_reason">
+                <textarea class="cancel-input" v-model="cancelReason" placeholder="Insira o motivo do cancelamento"></textarea>
+            </div>
+            <div id="cancel_button">
+                <button class="cancel-button" v-on:click="updateToCanceled()">Confirmar cancelamento</button>
             </div>
         </div>
-
+        <br>
         <a class="index-link" href="index.html">Lista de pedidos</a>
         
     </div>

@@ -22,7 +22,7 @@
             </li>
         </ul>
 
-        <h1>Pedidos em preparação:</h1>
+        <h1>Em preparação:</h1>
         <ul>
             <li v-for="order in ordersList.filter(order => order.status == 'Em preparação')">
                 <div>
@@ -37,9 +37,23 @@
             </li>
         </ul>
 
-        <h1>Pedidos prontos:</h1>
+        <h1>Pronto:</h1>
         <ul>
             <li v-for="order in ordersList.filter(order => order.status == 'Pronto')">
+                <div>
+                    <br>
+                    <a class="link" v-bind:href="'order-details.html?code=' + order.code">
+                        <strong>{{ order.code }}</strong>
+                    </a>
+                    <br>Status: {{ order.status }}
+                    <br>Horário: {{ order.created_at }}
+                </div>
+            </li>
+        </ul>
+
+        <h1>Pedidos cancelados:</h1>
+        <ul>
+            <li v-for="order in ordersList.filter(order => order.status == 'Cancelado')">
                 <div>
                     <br>
                     <a class="link" v-bind:href="'order-details.html?code=' + order.code">

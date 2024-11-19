@@ -4,7 +4,8 @@ const app = Vue.createApp({
 
     data(){
         return{
-            order: null
+            order: null,
+            cancelReason: ''
         }
     },
 
@@ -46,6 +47,22 @@ const app = Vue.createApp({
                 }
             });
             window.location.reload();
+        },
+
+        async updateToCanceled() {
+            await fetch(`${API_BASE_URL}/${this.order.order_info.code}/canceled`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    cancel_reason: this.cancelReason
+                })
+                
+            });
+
+            
+            window.location.href = 'order-details.html?code=' + this.order.order_info.code;
         }
     }
 
