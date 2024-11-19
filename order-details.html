@@ -11,7 +11,13 @@
         <div v-if="order">
             <h1>Detalhes do pedido {{ order.order_info.code }}</h1>
             <div id="order">
-                <p><strong>Horário: </strong>{{ order.order_info.created_at }}</p>
+                <p><strong>Horário de criação: </strong>{{ order.order_info.created_at }}</p>
+                <span v-if="order.order_info.preparing_timestamp">
+                    <p><strong>Início do preparo: </strong>{{ order.order_info.preparing_timestamp }}</p>
+                </span>
+                <span v-if="order.order_info.done_timestamp">
+                    <p><strong>Pedido pronto em: </strong>{{ order.order_info.done_timestamp }}</p>
+                </span>
                 <p><strong>Status: </strong>{{ order.order_info.status }}</p>
                 <span v-if="order.order_info.cancel_reason">
                     <p><strong>Motivo do cancelamento: </strong>{{ order.order_info.cancel_reason }}</p>
