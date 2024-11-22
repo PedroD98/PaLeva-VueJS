@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000/api/v1/restaurants/5FTAWU/orders";
+const API_BASE_URL = "http://localhost:3000/api/v1/restaurants/C4MPU5/orders";
 
 const app = Vue.createApp({
 
