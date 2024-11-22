@@ -10,3 +10,12 @@ Extensão do projeto PaLevá. Deve ser usado pela cozinha do restaurante para co
 ## Tecnologias Utilizadas
 - **Linguagem**: HTML, CSS, JavaScript 
 - **Framework**: VueJS
+
+## Importante 🚨
+
+O projeto está configurado para exibir os pedidos do restaurante Campus Lanches, que é gerado por seeds.rb no projeto principal.
+Para mudar essa configuração, altere as linhas API_BASE_URL nos arquivos orders-list.js e orders-details.js
+
+```bash
+  const API_BASE_URL = "http://localhost:3000/api/v1/restaurants/CÓDIGO_DO_RESTAURANTE/orders"
+```
